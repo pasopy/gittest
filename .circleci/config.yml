@@ -9,7 +9,5 @@
     
      steps:
        - checkout
-       - run:
-         name: Test
-         command: echo HeeloWorld
+       - run: echo HeeloWorld
      
