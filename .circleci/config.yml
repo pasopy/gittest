@@ -10,4 +10,5 @@
      steps:
        - checkout
        - run: echo HeeloWorld
+       - run: type sorce.txt
      
