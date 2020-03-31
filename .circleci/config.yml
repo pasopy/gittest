@@ -27,7 +27,7 @@ workflows:
   workflow:
     jobs:
     - hold: 
-          type: approval 
+         type: approval
 
     - deploy_master:
          requires:
