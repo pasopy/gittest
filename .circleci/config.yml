@@ -26,13 +26,16 @@ workflows:
   version: 2.1
   workflow:
     jobs:
+    - hold: 。
+          type: approval # <<< このキーを使うと Workflow を「待機」状態にします
+
     - deploy_master:
+         requires:
+           - hold
          filters:
             branches:
               only:  
                 - master
-            tags:
-              only: /^v.*/
     - deploy_release:
          filters:  
             branches:
@@ -43,3 +46,4 @@ workflows:
             branches:
               only:  
                 - develop
+    
