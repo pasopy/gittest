@@ -1,14 +1,31 @@
- version: 2.1
+# Orb 'circleci/gcp-cli@1.8.4' resolved to 'circleci/gcp-cli@1.8.4'
+version: 2
+jobs:
+  master_job:
+    docker:
+      - image: circleci/openjdk:8-jdk-node-browsers
+    steps:
+      - checkout
+      - run: echo 'Hello master_job'
 
- orbs:
-  win: circleci/windows@2.2.0
-
- jobs:
-   build:
-     executor: win/default     
-    
-     steps:
-       - checkout
-       - run: echo HeeloWorld
-       - run: type sorce.txt
-     
+  branch_job:
+    docker:
+      - image: circleci/openjdk:8-jdk-node-browsers
+    steps:
+      - checkout
+      - run: echo 'Hello branch_job'
+  
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - master_job:
+         filters:
+            branches:
+              only:  
+                - master
+    - branch_job:
+         filters:  
+            branches:
+              only:  
+                - /feature-.*/
