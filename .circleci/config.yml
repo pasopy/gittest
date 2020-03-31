@@ -27,7 +27,7 @@ workflows:
   workflow:
     jobs:
     - hold: 。
-          type: approval # <<< このキーを使うと Workflow を「待機」状態にします
+          type: approval 
 
     - deploy_master:
          requires:
