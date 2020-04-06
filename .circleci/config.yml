@@ -29,12 +29,14 @@ workflows:
     - hold: 
          type: approval
 
+
+
     - deploy_master:
          requires:
            - hold
          filters:
             tags:
-              only: /^V[0-9].*/
+              only: /V.*/
             branches:
               only:  
                 - master
