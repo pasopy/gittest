@@ -30,8 +30,8 @@ workflows:
          type: approval
 
     - deploy_master:
-         requires:
-           - hold
+         #requires:
+         #  - hold
          filters:
             branches:
               only:  
