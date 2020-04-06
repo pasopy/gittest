@@ -33,6 +33,8 @@ workflows:
          requires:
            - hold
          filters:
+            tags:
+              only: /^V[0-9]*/
             branches:
               only:  
                 - master
