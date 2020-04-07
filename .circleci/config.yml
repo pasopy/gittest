@@ -26,7 +26,12 @@ workflows:
   version: 2.1
   workflow:
     jobs:
+    - hold: 
+         type: approval
+
     - deploy_master:
+         #requires:
+         #  - hold
          filters:
             branches:
               only:  
@@ -41,3 +46,4 @@ workflows:
             branches:
               only:  
                 - develop
+    
