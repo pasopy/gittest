@@ -26,9 +26,9 @@ workflows:
   version: 2.1
   workflow:
     jobs:
-   ＃ - hold: 
-   ＃      type: approval
-
+    #- hold: 
+    #type: approval
+　　
     - deploy_master:
          #requires:
          #  - hold
