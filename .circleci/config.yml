@@ -1,0 +1,50 @@
+# Orb 'circleci/gcp-cli@1.8.4' resolved to 'circleci/gcp-cli@1.8.4'
+version: 2.1
+jobs:
+  deploy_master:
+    docker:
+      - image: circleci/openjdk:8-jdk-node-browsers
+    steps:
+      - checkout
+      - run: echo 'Hello deploy_master'
+
+  deploy_release:
+    docker:
+      - image: circleci/openjdk:8-jdk-node-browsers
+    steps:
+      - checkout
+      - run: echo 'Hello deploy_release'
+      
+  deploy_develop:
+    docker:
+      - image: circleci/openjdk:8-jdk-node-browsers
+    steps:
+      - checkout
+      - run: echo 'Hello deploy_develop'
+  
+workflows:
+  version: 2.1
+  workflow:
+    jobs:
+
+    #- hold: 
+    #type: approval
+　　
+    - deploy_master:
+         #requires:
+         #  - hold
+         filters:
+            branches:
+              only:  
+                - master
+    - deploy_release:
+         filters:  
+            branches:
+              only:  
+                - release
+    - deploy_develop:
+         filters:  
+            branches:
+              only:  
+                - develop
+    
