@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: echo 'Hello deploy_master'
       - run: DATENOW=`date`
-      - run: echo ${DATE}
+      - run: echo 'NOW'${DATE}
 
   deploy_release:
     docker:
