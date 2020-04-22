@@ -9,7 +9,7 @@ jobs:
       - run: echo 'Hello deploy_master'
       - run: DATENOW=CIRCLE_CURRENT_TIME_MILLS
       - run: echo $CIRCLE_CURRENT_TIME_MILLS
-      - run: echo  date
+      - run: echo $CIRCLE_PREVIOUS_BUILD_NUM
   deploy_release:
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
