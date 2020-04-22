@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: echo 'Hello deploy_master'
-      - run: DATENOW=`date`
+      - run: DATENOW=CIRCLE_CURRENT_TIME_MILLS
       - run: echo 'NOW'${DATE}
 
   deploy_release:
