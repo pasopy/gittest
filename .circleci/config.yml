@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: echo 'Hello deploy_master'
       - run: DATENOW=CIRCLE_CURRENT_TIME_MILLS
-      - run: echo 'NOW'${DATE}
+      - run: echo $CIRCLE_CURRENT_TIME_MILLS
 
   deploy_release:
     docker:
