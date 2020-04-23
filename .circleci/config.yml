@@ -7,7 +7,9 @@ jobs:
     steps:
       - checkout
       - run: echo 'Hello deploy_master'
-
+      - run: DATENOW=CIRCLE_CURRENT_TIME_MILLS
+      - run: echo $CIRCLE_CURRENT_TIME_MILLS
+      - run: echo $CIRCLE_PREVIOUS_BUILD_NUM
   deploy_release:
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
@@ -28,7 +30,7 @@ workflows:
     jobs:
     #- hold: 
     #type: approval
-　　
+    
     - deploy_master:
          #requires:
          #  - hold
@@ -36,6 +38,8 @@ workflows:
             branches:
               only:  
                 - master
+            tags:
+              only: /^v.*/
     - deploy_release:
          filters:  
             branches:
