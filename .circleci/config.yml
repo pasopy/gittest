@@ -39,7 +39,7 @@ workflows:
             branches:
               only:  
                 - master
-           　tags:
+            tags:
               only: /^v.*/
     - deploy_release:
          filters:  
