@@ -32,14 +32,11 @@ workflows:
     #type: approval
     
     - deploy_master:
-         #requires:
-         #  - hold
          filters:
             tags:
               only: /^v.*/
             branches:
-              only:  
-                - master
+              ignore: /.*/
     - deploy_release:
          filters:  
             branches:
