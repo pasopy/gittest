@@ -35,8 +35,6 @@ workflows:
          filters:
             tags:
               only: /^v.*/
-            branches:
-              ignore: /.*/
     - deploy_release:
          filters:  
             branches:
