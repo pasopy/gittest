@@ -35,13 +35,20 @@ workflows:
          filters:
             tags:
               only: /^v.*/
+            branches:
+              only:  
+                - master
     - deploy_release:
          filters:  
+            tags:
+              only: /^v.*/
             branches:
               only:  
                 - release
     - deploy_develop:
-         filters:  
+         filters:              
+            tags:
+              only: /^v.*/
             branches:
               only:  
                 - develop
