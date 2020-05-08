@@ -33,23 +33,10 @@ workflows:
     
     - deploy_master:
          filters:
+        - deploy_master:
+         filters:
             tags:
-              only: /^v.*/
+              only: /^v(\.[0-9]){3}.*/
             branches:
-              only:  
-                - master
-    - deploy_release:
-         filters:  
-            tags:
-              only: /^v.*/
-            branches:
-              only:  
-                - release
-    - deploy_develop:
-         filters:              
-            tags:
-              only: /^v.*/
-            branches:
-              only:  
-                - develop
+              ignore: /.*/
     
