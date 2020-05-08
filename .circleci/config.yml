@@ -38,3 +38,8 @@ workflows:
             branches:
               ignore: /.*/
     
+    - deploy_release:
+         filters:  
+            branches:
+              only:  
+                - release
