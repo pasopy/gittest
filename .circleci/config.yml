@@ -34,7 +34,7 @@ workflows:
     - deploy_master:
          filters:
             tags:
-              only: /v.*/
-         branches:
+              only: /^v.*/
+            branches:
               ignore: /.*/
     
