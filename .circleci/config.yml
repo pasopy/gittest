@@ -34,7 +34,7 @@ workflows:
     - deploy_master:
          filters:
             tags:
-              only: /^v(\.[0-9]){3}.*/
+              only: /^v.*/
             branches:
               ignore: /.*/
     
