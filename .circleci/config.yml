@@ -1,5 +1,5 @@
 # Orb 'circleci/gcp-cli@1.8.4' resolved to 'circleci/gcp-cli@1.8.4'
-version: 2.1
+version: 2
 jobs:
   deploy_master:
     docker:
@@ -23,28 +23,18 @@ jobs:
     steps:
       - checkout
       - run: echo 'Hello deploy_develop'
-  
+ 
 workflows:
-  version: 2.1
+  version: 2
   workflow:
     jobs:
     #- hold: 
     #type: approval
     
     - deploy_master:
-         filters:
+          filters:
             tags:
               only: /^v.*/
             branches:
-              ignore: /.*/
-    - deploy_release:
-         filters:  
-            branches:
-              only:  
-                - release
-    - deploy_develop:
-         filters:  
-            branches:
-              only:  
-                - develop
+              ignore: master
     
