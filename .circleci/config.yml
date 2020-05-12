@@ -24,7 +24,7 @@ jobs:
       - checkout
       - run: echo 'Hello deploy_develop'
   deploy_start:
-      docker:
+    docker:
       - image: circleci/openjdk:8-jdk-node-browsers
     steps:
       - run: echo 'Hello deploy_start'
