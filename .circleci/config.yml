@@ -23,15 +23,26 @@ jobs:
     steps:
       - checkout
       - run: echo 'Hello deploy_develop'
- 
+  deploy_start:
+    docker:
+      - image: circleci/openjdk:8-jdk-node-browsers
+    steps:
+      - run: echo 'Hello deploy_start'
 workflows:
   version: 2
   workflow:
     jobs:
     #- hold: 
     #type: approval
-    
+    - deploy_start:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only: master
     - deploy_master:
+          requires:
+            - deploy_start
           filters:
             tags:
               only: /^v.*/
