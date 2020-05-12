@@ -23,18 +23,27 @@ jobs:
     steps:
       - checkout
       - run: echo 'Hello deploy_develop'
- 
+  deploy_start:
+    steps:
+      - run: echo 'Hello deploy_start'
 workflows:
   version: 2
   workflow:
     jobs:
     #- hold: 
     #type: approval
-    
-    - deploy_master:
+    - deploy_start:
           filters:
             tags:
               only: /^v.*/
             branches:
-              ignore: master
+              only: master
+    - deploy_master:
+          requires:
+            - deploy_start
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
     
