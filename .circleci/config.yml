@@ -13,7 +13,7 @@ jobs:
       - run: echo $CIRCLE_BUILD_NUM
       - run: echo $CIRCLE_JOB
       - run: echo $CIRCLE_BRANCH
-      - run: test -f ~/repo/data.txt && echo "data.txt exist"
+      #- run: test -f ~/repo/data.txt && echo "data.txt exist"
   deploy_release:
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
