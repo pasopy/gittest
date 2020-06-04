@@ -33,7 +33,7 @@ workflows:
     jobs:
     #- hold: 
     #type: approval
-    - deploy_master:
+    - deploy_master
         #  filters:
         #    tags:
         #      only: /^v.*/
