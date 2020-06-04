@@ -10,7 +10,9 @@ jobs:
       - run: echo 'Hello deploy_master'
       - run: DATENOW=CIRCLE_CURRENT_TIME_MILLS
       - run: echo $CIRCLE_CURRENT_TIME_MILLS
-      - run: echo $CIRCLE_PREVIOUS_BUILD_NUM
+      - run: echo $CIRCLE_BUILD_NUM
+      - run: echo $CIRCLE_JOB
+      - run: echo $CIRCLE_BRANCH
       - run: test -f ~/repo/data.txt && echo "data.txt exist"
   deploy_release:
     docker:
@@ -32,9 +34,9 @@ workflows:
     #- hold: 
     #type: approval
     - deploy_master:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
+        #  filters:
+        #    tags:
+        #      only: /^v.*/
+        #    branches:
+        #      ignore: /.*/
     
